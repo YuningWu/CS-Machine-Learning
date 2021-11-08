@@ -48,8 +48,8 @@ class Perceptron():
         return count/len(y1)
 
 def main():
-    Data=pd.read_csv('train.csv',header=None)
-    Test=pd.read_csv('test.csv',header=None)
+    Data=pd.read_csv('./train.csv',header=None)
+    Test=pd.read_csv('./test.csv',header=None)
     #change the label into +1 and -1
     Data[4][Data[4]==0]=-1
     Test[4][Test[4] == 0] = -1
