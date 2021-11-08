@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
-os.chdir('D:/drive_utah/phd/5/class/HW/HW3/')
+os.chdir('/Users/Yuning/Desktop/')
 class Perceptron():
     def __init__(self):
         self.w=None
