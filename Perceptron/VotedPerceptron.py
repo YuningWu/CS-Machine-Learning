@@ -5,7 +5,7 @@ add a counter for each updated weight
 import pandas as pd
 import numpy as np
 import os
-os.chdir('/Users/Yuning/Desktop/')
+#os.chdir('/Users/Yuning/Desktop/')
 class Perceptron():
     def __init__(self):
         self.w=None
