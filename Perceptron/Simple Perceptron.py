@@ -1,6 +1,3 @@
-'''
-Averaged perceptron
-'''
 import pandas as pd
 import numpy as np
 import os
@@ -11,8 +8,6 @@ class Perceptron():
         self.b=0
         self.epoch=1
         self.learning_rate=1
-        self.ave_w=None
-        self.ave_b=0
 
     def Output_params(self):
         return self.w,self.b
@@ -25,7 +20,6 @@ class Perceptron():
             self.learning_rate=learning_rate
 
         self.w=np.array([0 for _ in range(x.shape[1])])
-        self.ave_w = np.array([0 for _ in range(x.shape[1])])
         # go through every epoch
         for epo in range(self.epoch):
         #    # go through all samples in one epoch
@@ -34,15 +28,13 @@ class Perceptron():
                 if y[sam]*(np.dot(self.w,np.transpose(x[sam,:]))+self.b)<=0:
                     self.w=self.w+self.learning_rate*y[sam]*np.transpose(x[sam,:])
                     self.b=self.b+self.learning_rate*y[sam]
-                self.ave_w=self.ave_w+self.w
-                self.ave_b=self.ave_b+self.b
-        print(self.ave_w,self.ave_b)
+        print(self.w,self.b)
         return
 
     def Predict(self,x):
         res=[]
         for sam in range(x.shape[0]):
-            if np.dot(self.ave_w,np.transpose(x[sam,:]))+self.ave_b>0:
+            if np.dot(self.w,np.transpose(x[sam,:]))+self.b>0:
                 res.append(1)
             else:
                 res.append(-1)
